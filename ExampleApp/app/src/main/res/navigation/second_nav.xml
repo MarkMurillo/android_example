@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/second_nav"
+    app:startDestination="@id/fragment_third">
+
+    <action android:id="@+id/action_main_activity"
+        app:destination="@id/main_activity"/>
+
+    <fragment android:id="@+id/fragment_third"
+        android:name="com.example.exampleapp.ui.fragments.third.ThirdFragment"
+        tools:layout="@layout/third_fragment">
+    </fragment>
+
+    <activity android:id="@+id/main_activity"
+        android:name="com.example.exampleapp.ui.activities.MainActivity"/>
+</navigation>
