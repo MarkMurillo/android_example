@@ -50,4 +50,13 @@ class AppModule {
 
     @Provides
     fun provideIsEvenUseCase(appData: AppData) = IsEvenUseCase(appData)
+
+    @Provides
+    @Named("HelloFromModules")
+    fun provideModuleHellos(
+        @Named("Module1Hello") mod1Hello: String,
+        @Named("Module2Hello") mod2Hello: String
+        ): String {
+        return "Hello from modules:\n$mod1Hello\n$mod2Hello\n"
+    }
 }

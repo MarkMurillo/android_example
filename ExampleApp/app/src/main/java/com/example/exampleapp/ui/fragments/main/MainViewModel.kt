@@ -16,7 +16,7 @@ import javax.inject.Named
  */
 @HiltViewModel
 class MainViewModel @Inject constructor(
-    @Named("Sentence")
+    @Named("HelloFromModules")
     val appName: String
 ) : BaseViewModel() {
 
