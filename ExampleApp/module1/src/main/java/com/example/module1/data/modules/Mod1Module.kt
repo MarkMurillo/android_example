@@ -12,5 +12,7 @@ class Mod1Module {
 
     @Provides
     @Named("Module1Hello")
-    fun provideHello(): String = "Hello from Module 1!"
+    fun provideHello(@Named("DynamicDep1") dynDep1: String): String {
+        return if (dynDep1.isNotEmpty()) "Module 1 runtime dep: $dynDep1" else "Hello from Module 1!"
+    }
 }

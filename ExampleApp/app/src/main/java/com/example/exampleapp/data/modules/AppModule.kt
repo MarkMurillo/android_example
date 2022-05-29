@@ -3,6 +3,7 @@ package com.example.exampleapp.data.modules
 import android.content.Context
 import com.example.exampleapp.R
 import com.example.exampleapp.data.AppData
+import com.example.exampleapp.data.RuntimeConfig
 import com.example.exampleapp.data.usecases.IsEvenUseCase
 import dagger.Module
 import dagger.Provides
@@ -59,4 +60,16 @@ class AppModule {
         ): String {
         return "Hello from modules:\n$mod1Hello\n$mod2Hello\n"
     }
+
+    @Singleton
+    @Provides
+    fun provideRuntimeConfig(): RuntimeConfig = RuntimeConfig()
+
+    @Named("DynamicDep1")
+    @Provides
+    fun provideRuntimeConfigDep1(runtimeConfig: RuntimeConfig): String = runtimeConfig.dynamicDependency1
+
+    @Named("DynamicDep2")
+    @Provides
+    fun provideRuntimeConfigDep2(runtimeConfig: RuntimeConfig): String = runtimeConfig.dynamicDependency2
 }
